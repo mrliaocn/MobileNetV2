@@ -1,0 +1,39 @@
+{
+    "seed": 1,
+    "mode": "train",
+    "cuda": true,
+    "runtime": {
+        "start_epoch": 0,
+        "num_epochs": 1200,
+        "test_every": 20,
+        "resume": false,
+        "root": "/load",
+        "summaries": "/summaries",
+        "checkpoints": "/checkpoints",
+        "checkpoint_file": "checkpoint.pth.tar"
+    },
+    "dataloader": {
+        "name": "ImageFolder",
+        "root": "../tiny-imagenet",
+        "image_size": 224,
+        "channels": 3,
+        "batch_size": 100,
+        "shuffle": true,
+        "dataloader_workers": 4,
+        "pin_memory": true
+    },
+    "model": {
+        "num_classes": 200,
+        "width_mult": 1
+    },
+    "loss": {},
+    "optim": {
+        "optim": "rms_prop",
+        "lr": 0.015,
+        "alpha": 0.9,
+        "momentum": 0.9,
+        "weight_decay": 5e-4,
+        "lr_decay": 0.99
+    },
+    "test": {}
+}
